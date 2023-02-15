@@ -10,8 +10,9 @@ import { ProjectComponent } from './project/project.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add', component: AddItemComponent},
-  { path: '/add/client', component: NewClientComponent},
-  { path: '/add/project', component: NewProjectComponent},
+  // TODO: Figure out angular subpaths
+  // { path: '/add/client', component: NewClientComponent},
+  // { path: '/add/project', component: NewProjectComponent},
   { path: 'project', component: ProjectComponent},
   { path: 'client', component: ClientComponent},
 ];
