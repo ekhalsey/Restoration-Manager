@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="SVGRoot"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <g
+     id="layer2"
+     style="display:none">
+    <circle
+       style="fill:#0000ff;stroke-width:1.00306"
+       id="path459"
+       cx="256"
+       cy="256"
+       r="256" />
+    <rect
+       style="fill:#ff00ff"
+       id="rect565"
+       width="256"
+       height="512"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     id="g571"
+     style="display:inline">
+    <path
+       id="circle567"
+       style="fill:#784421;stroke-width:1.00306"
+       d="M 0,0 V 256 A 256,256 0 0 1 256,0 Z M 256,0 V 512 A 256,256 0 0 0 512,256 256,256 0 0 0 256,0 Z m 0,512 A 256,256 0 0 1 0,256 v 256 z" />
+  </g>
+  <g
+     id="layer1"
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:306.667px;fill:#000000"
+       x="256"
+       y="367.48123"
+       id="text138"><tspan
+         id="tspan136"
+         x="256"
+         y="367.48123"
+         style="font-size:306.667px;text-align:center;text-anchor:middle">R<tspan
+   style="font-size:306.667px;text-align:center;text-anchor:middle;fill:#ffffff"
+   id="tspan298">M</tspan></tspan></text>
+  </g>
+  <g
+     id="layer3"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:307.013px;text-align:center;text-anchor:middle;fill:#552200;stroke-width:1.00109"
+       x="132.78084"
+       y="365.35049"
+       id="text1330"
+       transform="scale(1.0011403,0.99886099)"><tspan
+         id="tspan1328"
+         x="132.78084"
+         y="365.35049"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#552200;stroke-width:1.00109">R</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:306.667px;text-align:center;text-anchor:middle;fill:#ffffff"
+       x="379.50995"
+       y="364.86078"
+       id="text1384"><tspan
+         id="tspan1382"
+         x="379.50995"
+         y="364.86078"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff">M</tspan></text>
+  </g>
+</svg>
