@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  // buttons:String[] = ['Home', 'Clients', 'Projects'];
   buttons = [
     {buttonName : "Home", path : "/"},
     {buttonName : "Add Project", path : "/add/project"},

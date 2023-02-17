@@ -1,11 +1,9 @@
 
-<nav>
-    <div class="navbar-nav">
-        <ul class="nav">
-            <app-nav-bar-button *ngFor="let button of buttons" [buttonText]="button.buttonName" [path]="button.path"></app-nav-bar-button>
-        </ul>
-    </div>
-</nav>
+<!-- <nav class="navbar-nav"> -->
+    <ul class="nav nav-pills">
+        <app-nav-bar-button *ngFor="let button of buttons" [buttonText]="button.buttonName" [path]="button.path"></app-nav-bar-button>
+    </ul>
+<!-- </nav> -->
 <!-- TODO: expand menu-->
 <!-- TODO: make buttons into a collapsible menu -->
 <!-- TODO: make add buttons into a collapsible menu -->
