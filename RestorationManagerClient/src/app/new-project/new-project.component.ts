@@ -12,4 +12,11 @@ export class NewProjectComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // TODO: Generate form with *ngFor looping over an object array.
+
+  // TODO: Write backend form processing.
+
+  // TODO: Need a way to search customer names before submission
+
+  // TODO: Break into separate firstName and lastName fields??
 }
