@@ -5,6 +5,8 @@ import com.statuesrestorationsplus.RestorationManagerServer.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("client")
@@ -22,6 +24,11 @@ public class ClientController {
     void addUser(@RequestBody Client user) {
         //Client newClient = new Client(user.getClientName(), user.getEmail(), user.getPwHash());
         clientRepository.save(user);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Client> getClientById(@PathVariable("id") Integer id) {
+        return clientRepository.findById(id);
     }
 
 }
