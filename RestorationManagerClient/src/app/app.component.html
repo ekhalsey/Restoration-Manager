@@ -1,17 +1,21 @@
-<h1>App Componenet working</h1>
+<h1>Restoration Manager</h1>
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
 
 <!-- TODO: write home page -->
-<!-- <app-page-template></app-page-template> -->
-<p>Dummy code below</p>
+<app-header></app-header>
+<app-nav-bar></app-nav-bar>
+TODO: add data binding so page content can be pasted into this
+
+<!-- Send data here -->
 <nav>
-  <ul>
-    <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home page</a></li>
-    <li><a routerLink="/add/project" routerLinkActive="active" ariaCurrentWhenActive="page">Add Project</a></li>
-    <li><a routerLink="/add/client" routerLinkActive="active" ariaCurrentWhenActive="page">Add Client</a></li>
-    <li><a routerLink="/client" routerLinkActive="active" ariaCurrentWhenActive="page">View clients</a></li>
-    <li><a routerLink="/project" routerLinkActive="active" ariaCurrentWhenActive="page">View projects</a></li>
-  </ul>
+<ul>
+  <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home page</a></li>
+  <li><a routerLink="/add/project" routerLinkActive="active" ariaCurrentWhenActive="page">Add Project</a></li>
+  <li><a routerLink="/add/client" routerLinkActive="active" ariaCurrentWhenActive="page">Add Client</a></li>
+  <li><a routerLink="/client" routerLinkActive="active" ariaCurrentWhenActive="page">View clients</a></li>
+  <li><a routerLink="/project" routerLinkActive="active" ariaCurrentWhenActive="page">View projects</a></li>
+</ul>
 </nav>
+<app-footer></app-footer>
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>

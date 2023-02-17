@@ -6,7 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar-button.component.css']
 })
 export class NavBarButtonComponent implements OnInit {
+  
   @Input() buttonText:String='Button';
+  @Input() path:String='/';
 
   constructor() {
   }

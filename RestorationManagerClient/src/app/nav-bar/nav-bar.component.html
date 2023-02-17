@@ -1,4 +1,10 @@
-<div>
-    <app-nav-bar-button *ngFor="let text of buttons" [buttonText]="text"></app-nav-bar-button>
-    <!-- TODO: add  proper menu-->
-</div>
+
+<nav>
+    <div class="navbar-nav">
+        <ul class="nav">
+            <app-nav-bar-button *ngFor="let button of buttons" [buttonText]="button.buttonName" [path]="button.path"></app-nav-bar-button>
+        </ul>
+    </div>
+</nav>
+<!-- TODO: expand menu-->
+<!-- TODO: figure out why second level paths done work -->
