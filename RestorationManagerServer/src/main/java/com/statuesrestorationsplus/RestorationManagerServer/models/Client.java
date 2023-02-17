@@ -1,24 +1,27 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Client {
-
-    @GeneratedValue
-    @Id
-    int id;
+public class Client extends AbstractEntity {
 
     @NotBlank
-    String clientName;
+    private String clientName;
 
-    int phoneNumber;
+    private int phoneNumber;
 
-    String email;
+    private String email;
+
+    @OneToMany
+    @Valid
+    @NotNull
+    private List<Project> projects;
 
     public Client() {
     }
@@ -27,10 +30,6 @@ public class Client {
         this.clientName = clientName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getClientName() {
@@ -55,18 +54,5 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return id == client.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
