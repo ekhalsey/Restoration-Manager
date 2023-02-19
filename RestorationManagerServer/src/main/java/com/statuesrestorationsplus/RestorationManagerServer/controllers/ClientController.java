@@ -25,7 +25,6 @@ public class ClientController {
         //Client newClient = new Client(user.getClientName(), user.getEmail(), user.getPwHash());
         clientRepository.save(user);
     }
-
     @GetMapping("/{id}")
     public Optional<Client> getClientById(@PathVariable("id") Integer id) {
         return clientRepository.findById(id);
