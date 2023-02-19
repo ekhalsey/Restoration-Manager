@@ -1,0 +1,45 @@
+
+<!-- <form action="add/project" method="post"> -->
+
+    <label for="name">Project Name</label>
+    <div class="input-group mb-3">
+            <input #projectName type="text" name="name" class="form-control" placeholder="New project" required>
+    </div>
+
+    <label for="customer">Customer</label>
+    <div class="input-group mb-3">
+        <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
+    </div>
+
+    <label for="work-to-perform">Work to perform</label>
+    <div class="input-group mb-3">
+        <input #workToPerform class="form-control" type="text" name="work-to-perform" id="work-to-perform-field">
+    </div>
+
+    <label for="due-by-date">Date needed by</label>
+    <div class="input-group mb-3">
+        <input #dueByDate type="date" name="due-by-date" id="due-by-date-field" class="form-control">
+    </div>
+
+    <label for="quoted-price">Quoted price</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input #quotedPrice class="form-control" type="text" name="quoted-price">
+    </div>
+
+    <label for="photo">Photo</label>
+    <div class="input-group mb-3">
+        <input #photo type="file" name="photo" class="form-control" accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
+    </div>
+
+    <label for="notes">Notes</label>
+    <div class="input-group mb-3">
+        <input #projectNotes class="form-control" type="text" name="notes" id="project-notes">
+    </div>
+
+    <div class="form-group mb-3">
+        <!-- <input type="button" value="Submit" class="btn btn-success"> -->
+        <button (click) = "collectFormData(projectName.value, customerName.value, workToPerform.value, dueByDate.valueAsDate, quotedPrice.value, photo.files, projectNotes.value);">Submit</button>
+    </div>
+
+<!-- </form> -->
