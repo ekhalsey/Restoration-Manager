@@ -18,9 +18,7 @@ export class NewClientComponent implements OnInit {
    
   }
   onSubmit(){
-   this.client.projects = [];
-    console.log(this.client);
-    this.clientService.save(this.client).subscribe((result) => console.log("saved client"));
+    this.clientService.save(this.client).subscribe();
   }
 
 }
