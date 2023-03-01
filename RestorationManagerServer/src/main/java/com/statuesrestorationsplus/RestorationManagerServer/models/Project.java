@@ -12,6 +12,12 @@ public class Project extends AbstractEntity{
     private String name;
     private LocalDate dueDate;
 
+    private String notes;
+
+    private String photo;
+
+    private Integer quotedPrice;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     @Valid
@@ -40,6 +46,30 @@ public class Project extends AbstractEntity{
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public Integer getQuotedPrice() {
+        return quotedPrice;
+    }
+
+    public void setQuotedPrice(Integer quotedPrice) {
+        this.quotedPrice = quotedPrice;
     }
 
     public Client getClient() {
