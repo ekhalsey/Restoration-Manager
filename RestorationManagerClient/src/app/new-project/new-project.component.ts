@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { NewClientComponent } from '../new-client/new-client.component';
 
 @Component({
   selector: 'app-new-project',

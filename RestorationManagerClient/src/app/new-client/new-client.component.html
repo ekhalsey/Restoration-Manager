@@ -1,2 +1,11 @@
 <p>new-client works!</p>
-TODO: Write new client form
+<form (ngSubmit)="onSubmit()">
+    <input placeholder="First Name" type="text" [(ngModel)]="client.firstName">
+    <input placeholder="Last Name" type="text" [(ngModel)]="client.lastName">
+
+    <input placeholder="Phone Number" type="number" [(ngModel)]="client.phoneNumber">
+
+    <input placeholder="Email" type="text" [(ngModel)]="client.email">
+
+    <button type="submit"></button>
+</form>

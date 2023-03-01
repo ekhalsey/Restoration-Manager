@@ -1,7 +1,8 @@
 import { Project } from "./project.model" 
 
 export class Client {
-    name: string = "";
+    firstName: string = "";
+    lastName: string = "";
     phoneNumber: number = 0;
     email: string = "";
     projects: Array<Project> = [];

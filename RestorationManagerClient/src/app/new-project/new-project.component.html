@@ -24,8 +24,7 @@
 
 <div>
     <div *ngIf="newCustomer; else existingCustomerBlock">
-        <!-- TODO: Write new customer form -->
-        <p>New customer</p>
+        <app-new-client></app-new-client>>
     </div>
     <ng-template #existingCustomerBlock>
         <label for="customer">Existing customer</label>
