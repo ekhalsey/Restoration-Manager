@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-project',
@@ -8,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class NewProjectComponent implements OnInit {
 
   formData: object = {};
+  formIntro: String = "New Project Entry";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(form:NgForm) {
+    console.log(form);
+  }
   
+  newCustomer:boolean = true;
+
+
   collectFormData(projectName: string, customerName: string, workToPerform: string, dueByDate:Date | null, quotedPrice:string, photo:FileList | null, projectNotes: string) {
     
     // FIXME: price is still a string for now.
