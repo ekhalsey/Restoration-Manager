@@ -15,6 +15,7 @@ import { NewClientComponent } from './new-client/new-client.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ProjectComponent } from './project/project.component';
 import { ClientComponent } from './client/client.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ClientComponent } from './client/client.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

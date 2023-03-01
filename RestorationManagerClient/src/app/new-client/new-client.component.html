@@ -1,11 +1,29 @@
 <p>new-client works!</p>
 <form (ngSubmit)="onSubmit()">
-    <input placeholder="First Name" type="text" [(ngModel)]="client.firstName">
-    <input placeholder="Last Name" type="text" [(ngModel)]="client.lastName">
+    <input placeholder="First Name" 
+            type="text" 
+            [(ngModel)]="client.firstName"
+            name=firstName
+            id="firstName">
+            
 
-    <input placeholder="Phone Number" type="number" [(ngModel)]="client.phoneNumber">
+    <input placeholder="Last Name" 
+            type="text" 
+            [(ngModel)]="client.lastName"
+            name="lastName"
+            id="lastName">
 
-    <input placeholder="Email" type="text" [(ngModel)]="client.email">
+    <input placeholder="Phone Number" 
+            type="number" 
+            [(ngModel)]="client.phoneNumber"
+            name="phoneNumber"
+            id="phoneNumber">
 
-    <button type="submit"></button>
+    <input placeholder="Email" 
+            type="text" 
+            [(ngModel)]="client.email"
+            name="email"
+            id="email">
+
+    <button type="submit">Submit</button>
 </form>

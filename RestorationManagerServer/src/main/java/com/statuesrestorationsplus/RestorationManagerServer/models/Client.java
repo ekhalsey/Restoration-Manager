@@ -22,7 +22,6 @@ public class Client extends AbstractEntity {
 
     @OneToMany
     @Valid
-    @NotNull
     private List<Project> projects;
 
     public Client() {
