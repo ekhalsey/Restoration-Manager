@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../models/project.model';
+import { Client } from '../models/client.model';
+import { ProjectService } from '../service/project.service';
 
 @Component({
   selector: 'app-new-project',
@@ -7,37 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProjectComponent implements OnInit {
 
-  formData: object = {};
+  project: Project;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private projectService:ProjectService) { 
+    this.project = new Project();
   }
 
-  
-  collectFormData(projectName: string, customerName: string, workToPerform: string, dueByDate:Date | null, quotedPrice:string, photo:FileList | null, projectNotes: string) {
-    
-    // FIXME: price is still a string for now.
-    // TODO: learn datatypes for Date, Photo
+  ngOnInit(): void { }
 
-    this.formData = {
-      projectName: projectName, 
-      customerName: customerName,
-      workToPerform: workToPerform, 
-      dueByDate: dueByDate,
-      quotedPrice: quotedPrice, photo: photo,
-      projectNotes: projectNotes
-    };
-
-    console.log(this.formData);
+  onSubmit() {
+    console.log(this.project);
+    this.projectService.save(this.project).subscribe();
+    // TODO: figure out why this works...
   }
 
-
-  // TODO: Generate form with *ngFor looping over an object array.
-
-  // TODO: Write backend form processing.
+  // TODO: Generate form with *ngFor looping over an object array?
 
   // TODO: Need a way to search customer names before submission
 
-  // TODO: Break into separate firstName and lastName fields??
 }

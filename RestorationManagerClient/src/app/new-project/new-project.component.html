@@ -1,45 +1,70 @@
 
-<!-- <form action="add/project" method="post"> -->
+<form (ngSubmit)="onSubmit()">
 
     <label for="name">Project Name</label>
     <div class="input-group mb-3">
-            <input #projectName type="text" name="name" class="form-control" placeholder="New project" required>
+            <input 
+            name="projectName" 
+            [(ngModel)]="project.projectName" 
+            type="text" 
+            class="form-control" 
+            placeholder="New project" 
+            required
+            >
     </div>
 
-    <label for="customer">Customer</label>
+    <!-- <label for="customer">Customer</label>
     <div class="input-group mb-3">
         <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
-    </div>
+    </div> -->
 
     <label for="work-to-perform">Work to perform</label>
     <div class="input-group mb-3">
-        <input #workToPerform class="form-control" type="text" name="work-to-perform" id="work-to-perform-field">
+        <textarea 
+        name="work-to-perform" 
+        [(ngModel)]="project.notes" 
+        class="form-control" 
+        id="work-to-perform-field"
+        ></textarea>
     </div>
 
     <label for="due-by-date">Date needed by</label>
     <div class="input-group mb-3">
-        <input #dueByDate type="date" name="due-by-date" id="due-by-date-field" class="form-control">
+        <input 
+        name="due-by-date" 
+        [(ngModel)]="project.dueDate"
+        type="date" 
+        class="form-control"
+        id="due-by-date-field" 
+        >
     </div>
 
     <label for="quoted-price">Quoted price</label>
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input #quotedPrice class="form-control" type="text" name="quoted-price">
+        <input 
+        name="quoted-price"
+        [(ngModel)]="project.quotedPrice"
+        type="text" 
+        class="form-control" 
+        >
     </div>
 
     <label for="photo">Photo</label>
     <div class="input-group mb-3">
-        <input #photo type="file" name="photo" class="form-control" accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
-    </div>
-
-    <label for="notes">Notes</label>
-    <div class="input-group mb-3">
-        <input #projectNotes class="form-control" type="text" name="notes" id="project-notes">
+        <input 
+        type="file"
+        name="photo"
+        class="form-control"
+        accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp"
+        >
     </div>
 
     <div class="form-group mb-3">
-        <!-- <input type="button" value="Submit" class="btn btn-success"> -->
-        <button (click) = "collectFormData(projectName.value, customerName.value, workToPerform.value, dueByDate.valueAsDate, quotedPrice.value, photo.files, projectNotes.value);">Submit</button>
+        <input 
+        type="submit" 
+        value="Submit" 
+        class="btn btn-success">
     </div>
 
-<!-- </form> -->
+</form>
