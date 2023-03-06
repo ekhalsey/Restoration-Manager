@@ -18,31 +18,19 @@
             >
     </div>
 
-<div class="input-group mb-3">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
-        </li>
-        <li class="nav-item">
-            <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <div *ngIf="newCustomer; else existingCustomerBlock">
-        <app-new-client></app-new-client>>
-    </div>
-    <ng-template #existingCustomerBlock>
-        <label for="customer">Existing customer</label>
-        <div class="input-group mb-3">
-            <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
+    <div>
+        <div *ngIf="newCustomer; else existingCustomerBlock">
+            <app-new-client></app-new-client>
         </div>
-    </ng-template>
-</div>
+        <ng-template #existingCustomerBlock>
+            <label for="customer">Existing customer</label>
+            <div class="input-group mb-3">
+                <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
+            </div>
+        </ng-template>
+    </div>
 
-
-    <!-- <label for="work-to-perform">Work to perform</label>
+    <label for="work-to-perform">Work to perform</label>
     <div class="input-group mb-3">
         <textarea 
         name="work-to-perform" 
@@ -51,7 +39,7 @@
         id="work-to-perform-field"
         ></textarea>
     </div>
-
+    -
     <label for="due-by-date">Date needed by</label>
     <div class="input-group mb-3">
         <input 
@@ -62,7 +50,7 @@
         id="due-by-date-field" 
         >
     </div>
-
+    -
     <label for="quoted-price">Quoted price</label>
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
@@ -73,6 +61,17 @@
         class="form-control" 
         >
     </div>
+
+<div class="input-group mb-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
+        </li>
+        <li class="nav-item">
+            <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
+        </li>
+    </ul>
+</div>
 
     <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
     <label for="photo">Photo</label>

@@ -1,5 +1,6 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,7 +19,7 @@ public class Project extends AbstractEntity{
 
     private Integer quotedPrice;
 
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.ALL)
     @JoinColumn(name = "client_id")
     @Valid
     private Client client;
