@@ -1,4 +1,9 @@
 
+<!-- Add some styling to the h1 -->
+<h1 class="mb-3">
+    {{ formIntro }}
+</h1>
+
 <form (ngSubmit)="onSubmit()">
 
     <label for="name">Project Name</label>
@@ -13,12 +18,31 @@
             >
     </div>
 
-    <!-- <label for="customer">Customer</label>
-    <div class="input-group mb-3">
-        <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
-    </div> -->
+<div class="input-group mb-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
+        </li>
+        <li class="nav-item">
+            <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
+        </li>
+    </ul>
+</div>
 
-    <label for="work-to-perform">Work to perform</label>
+<div>
+    <div *ngIf="newCustomer; else existingCustomerBlock">
+        <app-new-client></app-new-client>>
+    </div>
+    <ng-template #existingCustomerBlock>
+        <label for="customer">Existing customer</label>
+        <div class="input-group mb-3">
+            <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
+        </div>
+    </ng-template>
+</div>
+
+
+    <!-- <label for="work-to-perform">Work to perform</label>
     <div class="input-group mb-3">
         <textarea 
         name="work-to-perform" 
@@ -50,6 +74,7 @@
         >
     </div>
 
+    <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
     <label for="photo">Photo</label>
     <div class="input-group mb-3">
         <input 

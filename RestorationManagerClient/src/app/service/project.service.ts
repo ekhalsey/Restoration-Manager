@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ProjectService {
   private url: string;
 

@@ -6,5 +6,5 @@ export class Project {
     quotedPrice: number = 0;
     notes: string = "";
     photo: string = "";
-    client: Client = { name : "", phoneNumber : 0, email : "", projects : []};
+    client: Client = { firstName : "", lastName : "", phoneNumber : 0, email : "", projects : []};
 }
