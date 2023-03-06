@@ -19,8 +19,10 @@ public class Project extends AbstractEntity{
 
     private Integer quotedPrice;
 
+    // I thought this cascade property should have been on the @OneToMany side, but this is the
+    // configuration that allowed me to submit a new project properly.
     @ManyToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id", nullable = false)
     @Valid
     private Client client;
 

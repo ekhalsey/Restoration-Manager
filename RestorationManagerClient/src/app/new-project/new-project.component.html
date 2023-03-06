@@ -4,18 +4,30 @@
     {{ formIntro }}
 </h1>
 
+<!-- TODO: Add NgForm to this form -->
 <form (ngSubmit)="onSubmit()">
 
     <label for="name">Project Name</label>
     <div class="input-group mb-3">
             <input 
             name="projectName" 
-            [(ngModel)]="project.projectName" 
+            [(ngModel)]="project.name" 
             type="text" 
             class="form-control" 
             placeholder="New project" 
             required
             >
+    </div>
+
+    <div class="input-group mb-3">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
+            </li>
+            <li class="nav-item">
+                <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
+            </li>
+        </ul>
     </div>
 
     <div>
@@ -61,17 +73,6 @@
         class="form-control" 
         >
     </div>
-
-<div class="input-group mb-3">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
-        </li>
-        <li class="nav-item">
-            <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
-        </li>
-    </ul>
-</div>
 
     <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
     <label for="photo">Photo</label>

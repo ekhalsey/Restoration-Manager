@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { NewClientComponent } from '../new-client/new-client.component';
 import { Project } from '../models/project.model';
-import { Client } from '../models/client.model';
 import { ProjectService } from '../service/project.service';
 
 @Component({
@@ -23,9 +21,21 @@ export class NewProjectComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit() {
-    console.log(this.project);
+    
+    // TODO: implement reading the new client form so it may be submitted with
+    // a new project
+
+    // TODO: implenent lookup of an existing client in order to attach it to a 
+    // new project
+
+    // This is some dummy client data that works to pass current model validation
+    // this should be removed once client submission is working on this form
+    this.project.client.firstName = "Nathan";
+    this.project.client.lastName = "Hamface";
+    this.project.client.email = "ham.man@hotmeatmail.net";
+    this.project.client.phoneNumber = 1234567;
+
     this.projectService.save(this.project).subscribe();
-    // TODO: figure out why this works...
   }
 
   // TODO: Generate form with *ngFor looping over an object array?
