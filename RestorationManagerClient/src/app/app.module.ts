@@ -18,7 +18,6 @@ import { ProjectComponent } from './project/project.component';
 import { ClientComponent } from './client/client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewProjectFormComponent } from './new-project-form/new-project-form.component';
-import { FormProfileEditorComponent } from './form-profile-editor/form-profile-editor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { FormProfileEditorComponent } from './form-profile-editor/form-profile-e
     ProjectComponent,
     ClientComponent,
     NewProjectFormComponent,
-    FormProfileEditorComponent
   ],
   imports: [
     BrowserModule,
