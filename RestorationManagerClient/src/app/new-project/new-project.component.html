@@ -1,16 +1,22 @@
 
+<div class="container">
+    <p>Name: {{ project.name }} </p>
+    <p>Name is valid: {{ projectForm }}</p>
+</div>
+
 <!-- Add some styling to the h1 -->
 <h1 class="mb-3">
     {{ formIntro }}
 </h1>
 
 <!-- TODO: Add NgForm to this form -->
-<form (ngSubmit)="onSubmit()">
+<form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
 
     <label for="name">Project Name</label>
     <div class="input-group mb-3">
             <input 
             name="projectName" 
+            #projectName = "ngModel"
             [(ngModel)]="project.name" 
             type="text" 
             class="form-control" 
@@ -51,7 +57,7 @@
         id="work-to-perform-field"
         ></textarea>
     </div>
-    -
+    
     <label for="due-by-date">Date needed by</label>
     <div class="input-group mb-3">
         <input 
@@ -62,7 +68,7 @@
         id="due-by-date-field" 
         >
     </div>
-    -
+    
     <label for="quoted-price">Quoted price</label>
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
@@ -90,6 +96,7 @@
         type="submit" 
         value="Submit" 
         class="btn btn-success">
+        disabled="{{projectForm.disabled}}"
     </div>
 
 </form>

@@ -13,6 +13,7 @@ export class NewProjectComponent implements OnInit {
   project: Project;
   formIntro: String = "New Project Entry";
   newCustomer: boolean = false;
+  projectName: any;
 
   constructor(private projectService:ProjectService) { 
     this.project = new Project();
@@ -20,8 +21,10 @@ export class NewProjectComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() {
+  onSubmit(projectForm: NgForm) {
     
+    console.log("CL: " + this.projectName.valid)
+
     // TODO: implement reading the new client form so it may be submitted with
     // a new project
 
@@ -35,7 +38,7 @@ export class NewProjectComponent implements OnInit {
     this.project.client.email = "ham.man@hotmeatmail.net";
     this.project.client.phoneNumber = 1234567;
 
-    this.projectService.save(this.project).subscribe();
+    // this.projectService.save(this.project).subscribe();
   }
 
   // TODO: Generate form with *ngFor looping over an object array?
