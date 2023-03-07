@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ProjectComponent } from './project/project.component';
 import { ClientComponent } from './client/client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewProjectFormComponent } from './new-project-form/new-project-form.component';
+import { FormProfileEditorComponent } from './form-profile-editor/form-profile-editor.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,14 @@ import { NewProjectFormComponent } from './new-project-form/new-project-form.com
     NewProjectComponent,
     ProjectComponent,
     ClientComponent,
-    NewProjectFormComponent
+    NewProjectFormComponent,
+    FormProfileEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
