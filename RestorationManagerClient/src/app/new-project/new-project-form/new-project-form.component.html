@@ -1,0 +1,12 @@
+<p>Name field value: {{ projectForm.value.projectName }}</p>
+<p>Name field validity: {{ projectForm.controls.projectName.valid }}</p>
+
+
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="projectName">
+
+
+    <input type="submit" value="Submit">
+</form>
+
