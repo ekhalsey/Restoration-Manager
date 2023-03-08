@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-new-project-form',
@@ -8,24 +9,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class NewProjectFormComponent implements OnInit {
 
+  newCustomer = false;
 
-  projectForm = new FormGroup({
-    projectName: new FormControl(''),
-    dueDate: new FormControl(''),
-    quotedPrice: new FormControl<number | null>(0),
-    notes: new FormControl(''),
-    photo: new FormControl('')
+  projectForm = this.fb.group({
+    projectName: ['', Validators.required],
+    dueDate: [''], //, Validators.pattern('\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])')
+    quotedPrice: new FormControl<number | null>(null, Validators.required),
+    notes: [''],
+    photo: ['']
   })
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  // updateName(): void {
-  //   this.newProjectForm.projectName.setValue("Goobers!");
-  //   this.name.setValue("Goobers!");
-  // }
+
 
   onSubmit(): void {
     console.warn("You are about to submit this form!")
