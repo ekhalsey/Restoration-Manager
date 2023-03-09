@@ -14,7 +14,8 @@ export class ExistingClientFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.existingClientForm = this.fb.group({
-      clientName: ['', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]
     })
   }
   
@@ -25,7 +26,7 @@ export class ExistingClientFormComponent implements OnInit {
 
   onChange(): void {
     this.sendFormGroup.emit(this.existingClientForm);
-    
+
   }
 
 }

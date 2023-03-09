@@ -8,14 +8,9 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./new-project-form.component.css']
 })
 export class NewProjectFormComponent implements OnInit {
-
-  
-  // formGroup: FormGroup = new FormGroup('');
-  // childFormGroup: FormGroup = new FormGroup('');;
   
   activeClientTab: String = 'existingClient';
   projectForm: FormGroup;
-
 
   constructor(private fb: FormBuilder) {
     this.projectForm = this.fb.group({
@@ -33,7 +28,6 @@ export class NewProjectFormComponent implements OnInit {
   
   onSubmit(): void {
     // TODO: write submit functionality (And probably move this functionality to the parent component)
-    console.warn("You are about to submit this form!")
   }
   
   setActiveClientTab(activeTab: String) {
@@ -41,7 +35,6 @@ export class NewProjectFormComponent implements OnInit {
   }
   
   onSendFormGroup(form: FormGroup): void {
-    // this.childFormGroup = form;
     this.projectForm.setControl("existingClient", form);
   }
 
