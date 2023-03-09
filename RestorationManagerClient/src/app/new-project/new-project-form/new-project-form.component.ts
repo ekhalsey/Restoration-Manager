@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
@@ -9,12 +9,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewProjectFormComponent implements OnInit {
   
-  projectForm: FormGroup;
-  activeClientTab: String = 'existingClient';
-  clientSelectButtons = [
-    {name: 'newClient', text: 'New Customer'},
-    {name: 'existingClient', text: 'Existing Customer'},
-  ]
+  // TODO: Eventually add input functionality so this can be updated
+  projectForm: FormGroup<any>;
+  @Output() sendFormGroup = new EventEmitter<FormGroup<any>>();
 
   constructor(private fb: FormBuilder) {
     this.projectForm = this.fb.group({
@@ -27,19 +24,11 @@ export class NewProjectFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.projectForm.
+    this.onChange();
   }
   
-  onSubmit(): void {
-    // TODO: write submit functionality (And probably move this functionality to the parent component)
-  }
-  
-  setActiveClientTab(activeTab: String) {
-    this.activeClientTab = activeTab;
-  }
-  
-  onSendFormGroup(form: FormGroup): void {
-    this.projectForm.setControl("existingClient", form);
+  onChange(): void {
+    this.sendFormGroup.emit(this.projectForm);
   }
 
 }

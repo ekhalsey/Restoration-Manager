@@ -1,4 +1,4 @@
-<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="projectForm" (change)="onChange()">
     <label for="projectName">Project Name</label>
     <div class="input-group mb-3">
         <input 
@@ -8,30 +8,6 @@
         class="form-control" 
         formControlName = "projectName"
         placeholder="New project">
-    </div>
-
-    <div class="input-group">
-        <ul class="nav nav-pills">
-            <li class="nav-item"
-            *ngFor="let btn of clientSelectButtons" >
-                <button type="button" 
-                [class.active]="activeClientTab === btn.name" 
-                (click)="setActiveClientTab(btn.name)" 
-                class="nav-link">{{btn.text}}</button>
-            </li>
-        </ul>
-    </div>
-
-    <div class="tab-pane pt-2" [ngSwitch]="activeClientTab">
-        <div *ngSwitchCase="'newClient'">
-            <app-new-client></app-new-client>
-        </div>
-        <div *ngSwitchCase="'existingClient'">
-            <app-existing-client-form 
-            [parentForm]="projectForm" 
-            (sendFormGroup)="onSendFormGroup($event)">
-            </app-existing-client-form>
-        </div>
     </div>
 
     <label for="work-to-perform">Work to perform</label>
@@ -62,7 +38,6 @@
         type="text" 
         class="form-control">
     </div>
-
     
     <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
     <label for="photo">Photo</label>
@@ -73,15 +48,6 @@
         formControlName="photo"
         class="form-control"
         accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
-    </div>
-
-    
-    <div class="form-group mb-3">
-        <input 
-        type="submit" 
-        value="Submit" 
-        class="btn btn-success"
-        [disabled]="!projectForm.valid">
     </div>
 </form>
 

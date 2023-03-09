@@ -1,8 +1,7 @@
-<h3>Attach Existing Client</h3>
-<label for="clientName">Existing customer</label>
 <form 
 [formGroup]="existingClientForm"
 (change)="onChange()">
+    <label for="firstName">First name</label>
     <div class="input-group mb-3">
         <input 
         name="firstName"
@@ -11,13 +10,17 @@
         class="form-control" 
         formControlName = "firstName"
         placeholder="John">
+    </div>
+
+    <label for="lastName">Last name</label>
+    <div class="input-group mb-3">
         <input
         name="lastName"
         type="text"
         id="last-name"
         class="form-control"
         formControlName = "lastName"
-        placeholder="Doe">
+        placeholder="Smith">
     </div>
     <!-- TODO: Style me -->
 </form>

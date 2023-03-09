@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-client-form',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewClientFormComponent implements OnInit {
 
-  constructor() { }
+  @Output() sendFormGroup = new EventEmitter<FormGroup>();
+  newClientForm: FormGroup<any>;
+
+  constructor(private fb: FormBuilder) {
+    this.newClientForm = fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: new FormControl<number | null>(null, Validators.minLength(7)),
+      email: ['', Validators.email],
+    })
+    this.onChange;
+  }
 
   ngOnInit(): void {
+  }
+
+  onChange(): void {
+    this.sendFormGroup.emit(this.newClientForm);
   }
 
 }

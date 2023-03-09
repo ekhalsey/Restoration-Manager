@@ -8,25 +8,21 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ExistingClientFormComponent implements OnInit {
 
+  @Input() existingClientForm: FormGroup<any>;
   @Output() sendFormGroup = new EventEmitter<FormGroup>();
-  @Input() parentForm: FormGroup = new FormGroup('');
-  existingClientForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.existingClientForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required]
     })
-  }
-  
-  ngOnInit(): void {
-    this.parentForm.addControl('existingClient', this.existingClientForm)
     this.onChange();
   }
+  
+  ngOnInit(): void { }
 
   onChange(): void {
     this.sendFormGroup.emit(this.existingClientForm);
-
   }
 
 }

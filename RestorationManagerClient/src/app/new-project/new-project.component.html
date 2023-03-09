@@ -4,4 +4,53 @@
     {{ formIntro }}
 </h1>
 
-<app-new-project-form></app-new-project-form>
+<div class="container">
+    <form [formGroup]="projectForm" (submit)="onSubmit()">
+        <div class="row justify-content-center align-items-top">
+            <div class="col-5">
+                <!-- TODO: implement sending pre-filled form values in order
+                           to switch tabs without field resets -->
+                <app-new-project-form
+                (sendFormGroup)="onSendFormGroup('project', $event)"
+
+                ></app-new-project-form>
+                <div class="form-group mb-3">
+                    <input 
+                    [disabled]="!projectForm.valid"
+                    type="submit" 
+                    value="Submit" 
+                    class="btn btn-success"
+                    >
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="input-group">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"
+                        *ngFor="let btn of clientSelectButtons" >
+                            <button type="button"
+                            [class.active]="activeClientTab === btn.name"
+                            (click)="setActiveClientTab(btn.name)"
+                            class="nav-link">{{btn.text}}</button>
+                        </li>
+                    </ul>
+                </div>
+        
+                <div class="tab-pane pt-2" [ngSwitch]="activeClientTab">
+                    <div *ngSwitchCase="'newClient'">
+                        <!-- TODO: refactor new client to send data with reactive form -->
+                        <app-new-client-form 
+                        (sendFormGroup)="onSendFormGroup('newClient', $event)"
+                        ></app-new-client-form>
+                    </div>
+                    <div *ngSwitchCase="'existingClient'">
+                        <app-existing-client-form
+                        (sendFormGroup)="onSendFormGroup('existingClient', $event)">
+                        <!-- TODO: [existingClientForm]="getFormGroup('existingClient')" -->
+                        </app-existing-client-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
