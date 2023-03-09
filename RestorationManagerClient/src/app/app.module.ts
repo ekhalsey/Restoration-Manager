@@ -18,6 +18,7 @@ import { ProjectComponent } from './project/project.component';
 import { ClientComponent } from './client/client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewProjectFormComponent } from './new-project/new-project-form/new-project-form.component';
+import { ExistingClientFormComponent } from './existing-client-form/existing-client-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NewProjectFormComponent } from './new-project/new-project-form/new-proj
     ProjectComponent,
     ClientComponent,
     NewProjectFormComponent,
+    ExistingClientFormComponent,
   ],
   imports: [
     BrowserModule,

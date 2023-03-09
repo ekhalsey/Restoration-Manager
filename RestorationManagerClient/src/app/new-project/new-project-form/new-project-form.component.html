@@ -1,4 +1,4 @@
-<p>Name field value: {{ projectForm.value.projectName }}</p>
+<!-- <p>Name field value: {{ projectForm.value.projectName }}</p>
 <p>Name field validity: {{ projectForm.controls.projectName.valid }}</p>
 <p>Name field dirty: {{ projectForm.controls.projectName.dirty }}</p>
 <p>dueDate field value: {{ projectForm.value.dueDate }}</p>
@@ -9,7 +9,9 @@
 <p>notes field validity: {{ projectForm.controls.notes.valid }}</p>
 <p>photo field value: {{ projectForm.value.photo }}</p>
 <p>photo field validity: {{ projectForm.controls.photo.valid }}</p>
-<p>Form validity: {{ projectForm.valid }}</p>
+<p>Form validity: {{ projectForm.valid }}</p> -->
+<!-- <p>Child form value: {{childFormGroup.value.clientName}}</p> -->
+
 
 
 <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
@@ -24,28 +26,39 @@
         placeholder="New project" >
     </div>
 
-    <!-- <div class="input-group mb-3">
-        <ul class="nav nav-tabs">
+    <div class="input-group">
+        <ul class="nav nav-pills">
             <li class="nav-item">
-                <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
+                <button type="button" 
+                [class.active]="activeClientTab === 'newClient'" 
+                (click)="setActiveClientTab('newClient')" 
+                class="nav-link">New Customer</button>
             </li>
-            <li class="nav-item">
-                <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
+            <li class="nav-pills">
+                <button type="button" 
+                [class.active]="activeClientTab === 'existingClient'" 
+                (click)="setActiveClientTab('existingClient')" 
+                class="nav-link">Existing customer</button>
             </li>
         </ul>
     </div>
 
-    <div>
-        <ng-template *ngIf="newCustomer; else existingCustomerBlock">
+    <div class="tab-pane pt-2" [ngSwitch]="activeClientTab">
+        <div *ngSwitchCase="'newClient'">
             <app-new-client></app-new-client>
-        </ng-template>
-        <ng-template #existingCustomerBlock>
-            <label for="customer">Existing customer</label>
-            <div class="input-group mb-3">
-                <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
-            </div>
-        </ng-template>
-    </div> -->
+        </div>
+        <div *ngSwitchCase="'existingClient'">
+            <app-existing-client-form 
+            [parentForm]="projectForm" 
+            (sendFormGroup)="onSendFormGroup($event)"
+            >
+            </app-existing-client-form>
+        </div>
+    </div>
+
+    <p>Parent form, from parent: {{projectForm.controls['projectName'].value}}</p>
+    <!-- Does not work. It does not yet exist on the parent so it sits here... -->
+    <p>Child form, from parent: {{projectForm.value.existingClient}}</p>
 
     <label for="work-to-perform">Work to perform</label>
     <div class="input-group mb-3">

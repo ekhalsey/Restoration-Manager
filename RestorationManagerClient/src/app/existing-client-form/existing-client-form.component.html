@@ -1,0 +1,19 @@
+<h3>Attach Existing Client</h3>
+
+<p>Parent form, info from child component: {{parentForm.controls['projectName'].value}}</p>
+<p>Child form, info from child component: {{parentForm.controls['existingClient'].value.clientName}}</p>
+
+<label for="clientName">Existing customer</label>
+<form 
+[formGroup]="existingClientForm"
+(change)="onChange()">
+    <div class="input-group mb-3">
+        <input 
+        name="clientName"
+        type="text" 
+        id="client-name"
+        class="form-control" 
+        formControlName = "clientName"
+        placeholder="John Doe">
+    </div>
+</form>
