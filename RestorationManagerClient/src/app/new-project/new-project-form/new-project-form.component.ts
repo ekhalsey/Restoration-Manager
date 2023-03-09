@@ -9,8 +9,12 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewProjectFormComponent implements OnInit {
   
-  activeClientTab: String = 'existingClient';
   projectForm: FormGroup;
+  activeClientTab: String = 'existingClient';
+  clientSelectButtons = [
+    {name: 'newClient', text: 'New Customer'},
+    {name: 'existingClient', text: 'Existing Customer'},
+  ]
 
   constructor(private fb: FormBuilder) {
     this.projectForm = this.fb.group({

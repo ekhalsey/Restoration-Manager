@@ -7,27 +7,17 @@
         id="name"
         class="form-control" 
         formControlName = "projectName"
-        placeholder="New project" >
+        placeholder="New project">
     </div>
 
     <div class="input-group">
         <ul class="nav nav-pills">
-            <!-- 
-                TODO:
-                Define these in the TS as [{name: String, text: String},] 
-                and iterate over with an *ngFor to create buttons.
-            -->
-            <li class="nav-item">
+            <li class="nav-item"
+            *ngFor="let btn of clientSelectButtons" >
                 <button type="button" 
-                [class.active]="activeClientTab === 'newClient'" 
-                (click)="setActiveClientTab('newClient')" 
-                class="nav-link">New Customer</button>
-            </li>
-            <li class="nav-pills">
-                <button type="button" 
-                [class.active]="activeClientTab === 'existingClient'" 
-                (click)="setActiveClientTab('existingClient')" 
-                class="nav-link">Existing customer</button>
+                [class.active]="activeClientTab === btn.name" 
+                (click)="setActiveClientTab(btn.name)" 
+                class="nav-link">{{btn.text}}</button>
             </li>
         </ul>
     </div>
@@ -39,8 +29,7 @@
         <div *ngSwitchCase="'existingClient'">
             <app-existing-client-form 
             [parentForm]="projectForm" 
-            (sendFormGroup)="onSendFormGroup($event)"
-            >
+            (sendFormGroup)="onSendFormGroup($event)">
             </app-existing-client-form>
         </div>
     </div>
@@ -51,8 +40,7 @@
         name="work-to-perform" 
         formControlName="notes"
         class="form-control" 
-        id="work-to-perform-field"
-        ></textarea>
+        id="work-to-perform-field"></textarea>
     </div>
 
     <label for="due-by-date">Date needed by</label>
@@ -62,8 +50,7 @@
         formControlName="dueDate"
         type="date" 
         class="form-control"
-        id="due-by-date-field" 
-        >
+        id="due-by-date-field">
     </div>
     
     <label for="quoted-price">Quoted price</label>
@@ -73,8 +60,7 @@
         name="quoted-price"
         formControlName="quotedPrice"
         type="text" 
-        class="form-control" 
-        >
+        class="form-control">
     </div>
 
     
@@ -86,8 +72,7 @@
         name="photo"
         formControlName="photo"
         class="form-control"
-        accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp"
-        >
+        accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
     </div>
 
     
@@ -96,8 +81,7 @@
         type="submit" 
         value="Submit" 
         class="btn btn-success"
-        [disabled]="!projectForm.valid"
-        >
+        [disabled]="!projectForm.valid">
     </div>
 </form>
 
