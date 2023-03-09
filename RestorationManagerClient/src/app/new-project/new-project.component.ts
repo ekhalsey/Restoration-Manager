@@ -51,8 +51,6 @@ export class NewProjectComponent implements OnInit {
     // TODO: implenent lookup of an existing client in order to attach it to a 
     // new project -> Need a way to search customer names before submission
 
-    // This is some dummy client data that works to pass current model validation
-    // this should be removed once client submission is working on this form
     
     if (this.activeClientTab === 'existingClient') {
       this.project.client.firstName = this.projectForm.value.existingClient.firstName;
