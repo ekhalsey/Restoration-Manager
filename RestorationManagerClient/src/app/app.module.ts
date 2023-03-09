@@ -15,6 +15,7 @@ import { NewClientComponent } from './new-client/new-client.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ProjectComponent } from './project/project.component';
 import { ClientComponent } from './client/client.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ClientComponent } from './client/client.component';
     NewClientComponent,
     NewProjectComponent,
     ProjectComponent,
-    ClientComponent
+    ClientComponent,
+    ProjectListComponent,
   ],
   imports: [
     BrowserModule,
