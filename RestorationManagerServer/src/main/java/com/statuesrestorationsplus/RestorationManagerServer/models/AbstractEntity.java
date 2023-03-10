@@ -1,6 +1,7 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
@@ -9,7 +10,7 @@ import java.util.Objects;
 public abstract class AbstractEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     public int getId() {

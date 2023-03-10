@@ -1,2 +1,26 @@
-<p>client works!</p>
-TODO: create single client view
+
+<h3>All Clients</h3>
+
+<div class="container">
+    <table class="table" style="background-color:white;">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Phone Number</th>
+            <th>Projects</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of allClients">
+                
+                <td><a href="/client">id</a></td>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td>{{client.phoneNumber}}</td>
+                <td><a href="/project">View Projects</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
