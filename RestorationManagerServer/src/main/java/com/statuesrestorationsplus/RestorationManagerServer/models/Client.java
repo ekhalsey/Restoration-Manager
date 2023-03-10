@@ -1,43 +1,53 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Client extends AbstractEntity {
 
     @NotBlank
-    private String clientName;
+    private String firstName;
+    @NotBlank
+    private String lastName;
 
     private int phoneNumber;
 
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client")
     @Valid
-    @NotNull
     private List<Project> projects;
 
     public Client() {
     }
 
-    public Client(String clientName, int phoneNumber, String email) {
-        this.clientName = clientName;
+    public Client(String firstName, String lastName, int phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getPhoneNumber() {

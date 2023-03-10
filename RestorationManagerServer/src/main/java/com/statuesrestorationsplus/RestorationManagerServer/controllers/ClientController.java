@@ -21,9 +21,12 @@ public class ClientController {
     }
 
     @PostMapping("add")
-    void addUser(@RequestBody Client user) {
+    void addUser(@RequestBody Client client) {
+        System.out.println(client);
+        Client newClient = new Client(client.getFirstName(), client.getLastName(), client.getPhoneNumber(), client.getEmail());
         //Client newClient = new Client(user.getClientName(), user.getEmail(), user.getPwHash());
-        clientRepository.save(user);
+        System.out.println(newClient);
+        clientRepository.save(newClient);
     }
     @GetMapping("/{id}")
     public Optional<Client> getClientById(@PathVariable("id") Integer id) {

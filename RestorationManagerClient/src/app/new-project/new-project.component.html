@@ -1,71 +1,56 @@
 
-<!-- Add some styling to the h1 -->
+<!-- TODO: Add some styling to the h1 -->
 <h1 class="mb-3">
     {{ formIntro }}
 </h1>
 
-<form #form="ngForm" (ngsubmit)="onSubmit(form)">
+<div class="container">
+    <form [formGroup]="projectForm" (submit)="onSubmit()">
+        <div class="row justify-content-center align-items-top">
+            <div class="col-5">
+                <!-- TODO: implement sending pre-filled form values in order
+                           to switch tabs without field resets -->
+                <app-new-project-form
+                (sendFormGroup)="onSendFormGroup('project', $event)"
 
-    <label for="name">Project Name</label>
-    <div class="input-group mb-3">
-            <input #projectName type="text" name="name" class="form-control" placeholder="New project" required>
-    </div>
-
-<div class="input-group mb-3">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <button (click)="newCustomer=false;" class="nav-link active">Existing customer</button>
-        </li>
-        <li class="nav-item">
-            <button (click)="newCustomer=true;" class="nav-link active">New Customer</button>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <div *ngIf="newCustomer; else existingCustomerBlock">
-        <!-- TODO: Write new customer form -->
-        <p>New customer</p>
-    </div>
-    <ng-template #existingCustomerBlock>
-        <label for="customer">Existing customer</label>
-        <div class="input-group mb-3">
-            <input #customerName type="text" name="customer" class="form-control" placeholder="FirstName LastName">
+                ></app-new-project-form>
+                <div class="form-group mb-3">
+                    <input 
+                    [disabled]="!projectForm.valid"
+                    type="submit" 
+                    value="Submit" 
+                    class="btn btn-success"
+                    >
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="input-group">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"
+                        *ngFor="let btn of clientSelectButtons" >
+                            <button type="button"
+                            [class.active]="activeClientTab === btn.name"
+                            (click)="setActiveClientTab(btn.name)"
+                            class="nav-link">{{btn.text}}</button>
+                        </li>
+                    </ul>
+                </div>
+        
+                <div class="tab-pane pt-2" [ngSwitch]="activeClientTab">
+                    <div *ngSwitchCase="'newClient'">
+                        <!-- TODO: refactor new client to send data with reactive form -->
+                        <app-new-client-form 
+                        (sendFormGroup)="onSendFormGroup('newClient', $event)"
+                        ></app-new-client-form>
+                    </div>
+                    <div *ngSwitchCase="'existingClient'">
+                        <app-existing-client-form
+                        (sendFormGroup)="onSendFormGroup('existingClient', $event)">
+                        <!-- TODO: [existingClientForm]="getFormGroup('existingClient')" -->
+                        </app-existing-client-form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </ng-template>
+    </form>
 </div>
-
-
-    <!-- <label for="work-to-perform">Work to perform</label>
-    <div class="input-group mb-3">
-        <input #workToPerform class="form-control" type="text" name="work-to-perform" id="work-to-perform-field">
-    </div> -->
-
-    <label for="due-by-date">Date needed by</label>
-    <div class="input-group mb-3">
-        <input #dueByDate type="date" name="due-by-date" id="due-by-date-field" class="form-control">
-    </div>
-
-    <label for="quoted-price">Quoted price</label>
-    <div class="input-group mb-3">
-        <span class="input-group-text">$</span>
-        <input #quotedPrice class="form-control" type="text" name="quoted-price">
-    </div>
-
-    <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
-    <label for="photo">Photo</label>
-    <div class="input-group mb-3">
-        <input #photo type="file" name="photo" class="form-control" accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
-    </div>
-
-    <label for="notes">Notes</label>
-    <div class="input-group mb-3">
-        <textarea #projectNotes class="form-control" type="text" name="notes" id="project-notes"></textarea>
-    </div>
-
-    <div class="form-group mb-3">
-        <input type="button" value="Submit" class="btn btn-success">
-        <!-- <button class="btn btn-success" (click) = "collectFormData(projectName.value, customerName.value, workToPerform.value, dueByDate.valueAsDate, quotedPrice.value, photo.files, projectNotes.value);">Submit</button> -->
-    </div>
-
-</form>

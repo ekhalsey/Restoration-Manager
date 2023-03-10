@@ -1,0 +1,52 @@
+<form 
+[formGroup]="newClientForm"
+(change)="onChange()"
+>
+    <label for="firstName">First name</label>
+    <div class="input-group mb-3">
+        <input  
+        type="text" 
+        formControlName="firstName"
+        class="form-control"
+        name="firstName"
+        id="firstName"
+        placeholder="Jane"
+        >
+    </div>
+
+    <label for="lastName">Last name</label>
+    <div class="input-group mb-3">
+        <input  
+        type="text" 
+        formControlName="lastName"
+        class="form-control"
+        name="lastName"
+        id="lastName"
+        placeholder="Smith"
+        >
+    </div>
+    
+    <label for="phoneNumber">Phone number</label>
+    <div class="input-group mb-3">
+        <input  
+        type="tel" 
+        formControlName="phoneNumber"
+        class="form-control"
+        name="phoneNumber"
+        id="phoneNumber"
+        placeholder="555-555-5555"
+        >
+    </div>
+    
+    <label for="email">Email address</label>
+    <div class="input-group mb-3">
+        <input  
+        type="email" 
+        formControlName="email"
+        class="form-control"
+        name="email"
+        id="email"
+        placeholder="jane.smith@email.com"
+        >
+    </div>
+</form>
