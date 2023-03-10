@@ -1,5 +1,6 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,8 +19,10 @@ public class Project extends AbstractEntity{
 
     private Integer quotedPrice;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
+    // I thought this cascade property should have been on the @OneToMany side, but this is the
+    // configuration that allowed me to submit a new project properly.
+    @ManyToOne(cascade= CascadeType.ALL)
+    @JoinColumn(name = "client_id", nullable = false)
     @Valid
     private Client client;
 

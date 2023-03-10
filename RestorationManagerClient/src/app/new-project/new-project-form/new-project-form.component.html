@@ -1,0 +1,53 @@
+<form [formGroup]="projectForm" (change)="onChange()">
+    <label for="projectName">Project Name</label>
+    <div class="input-group mb-3">
+        <input 
+        name="projectName"
+        type="text" 
+        id="name"
+        class="form-control" 
+        formControlName = "projectName"
+        placeholder="New project">
+    </div>
+
+    <label for="work-to-perform">Work to perform</label>
+    <div class="input-group mb-3">
+        <textarea 
+        name="work-to-perform" 
+        formControlName="notes"
+        class="form-control" 
+        id="work-to-perform-field"></textarea>
+    </div>
+
+    <label for="due-by-date">Date needed by</label>
+    <div class="input-group mb-3">
+        <input 
+        name="due-by-date" 
+        formControlName="dueDate"
+        type="date" 
+        class="form-control"
+        id="due-by-date-field">
+    </div>
+    
+    <label for="quoted-price">Quoted price</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input 
+        name="quoted-price"
+        formControlName="quotedPrice"
+        type="text" 
+        class="form-control">
+    </div>
+    
+    <!-- https://stackoverflow.com/questions/33279153/rest-api-file-ie-images-processing-best-practices -->
+    <label for="photo">Photo</label>
+    <div class="input-group mb-3">
+        <input 
+        type="file"
+        name="photo"
+        formControlName="photo"
+        class="form-control"
+        accept=".jpg,.jpeg,.png,.gif,.tiff,.bmp">
+    </div>
+</form>
+
