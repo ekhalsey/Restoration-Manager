@@ -18,7 +18,7 @@ export class ProjectService {
   }
 
   public save(project: Project) {
-    return this.http.post<Project>(this.url, project);
+    return this.http.post<Project>(`${this.url}/add`, project);
   }
 
   // TODO: Figure out how to pull one record
