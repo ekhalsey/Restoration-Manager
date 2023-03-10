@@ -1,1 +1,25 @@
-<p>project-list works!</p>
+
+<div class="container" style="background-color:white;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Project name</th>
+                <th scope="col">Due date</th>
+                <th scope="col">Quoted price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Client Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let project of projects">
+                <td>{{project.name}}</td>
+                <td>{{project.dueDate}}</td>
+                <td>${{project.quotedPrice}}</td>
+                <td>{{project.notes}}</td>
+                <td>{{project.client.firstName}} {{project.client.lastName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <button (click)="onClick()" class="btn btn-danger">DEBUG</button> -->

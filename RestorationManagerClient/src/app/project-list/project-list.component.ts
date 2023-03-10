@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../models/project.model';
 import { ProjectService } from '../service/project.service';
 
 @Component({
@@ -8,12 +9,24 @@ import { ProjectService } from '../service/project.service';
 })
 export class ProjectListComponent implements OnInit {
 
-  constructor() {
-    // private projectService: ProjectService
-    
+  projects: Project[];
+  myObserver = {
+    next: (value: Project[]) => this.projects = value,
+    error: (error: Error) => console.log("An error: " + error.message),
+    complete: () => console.log("Completed")
+  };
+
+
+  constructor(private projectService: ProjectService) {
+    this.projects = new Array();
+    this.projectService.findAll().subscribe(this.myObserver);
+  }
+  
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+  onClick(): void {
+    console.log(this.projects)
   }
 
 }
