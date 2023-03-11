@@ -29,4 +29,16 @@ export class ProjectListComponent implements OnInit {
     console.log(this.projects)
   }
 
+  // sort(column: string): void {
+	// 	// array.sort modifies the array, sorting the items based on the given compare function
+	// 	this.projects.sort(function (a: Project, b: Project): number {
+	// 		if (a[column] < b[column]) {
+	// 			return -1;
+	// 		} else if (a[column] > b[column]) {
+	// 			return 1;
+	// 		}
+	// 		return 0;
+	// 	});
+	// }
+
 }
