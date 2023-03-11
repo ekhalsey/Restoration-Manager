@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 })
 export class ClientComponent implements OnInit {
 
-  allClientsJson: Array<Client>;
+  allClients: Array<Client>;
   id:number;
 
   constructor(private clientService:ClientService, private router:Router) {
-    this.allClientsJson = [];
+    this.allClients = [];
+    
     this.id = 0;
   }
 
@@ -24,7 +25,7 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.findAll().subscribe(result => (this.allClientsJson = result));
+    this.clientService.findAll().subscribe(result => (this.allClients = result));
     
   }
 
