@@ -1,6 +1,7 @@
 import { Client } from "./client.model"
 
 export class Project {
+    id: number = 0;
     name: string = "";
     dueDate: Date = new Date;
     quotedPrice: number = 0;

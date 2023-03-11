@@ -12,21 +12,13 @@ import { Router } from '@angular/router';
 export class ClientComponent implements OnInit {
 
   allClients: Array<Client>;
-  id:number;
 
   constructor(private clientService:ClientService, private router:Router) {
     this.allClients = [];
-    
-    this.id = 0;
-  }
-
-  goToClient(){
-    this.router.navigate([`/client/${this.id}`]);
   }
 
   ngOnInit(): void {
     this.clientService.findAll().subscribe(result => (this.allClients = result));
-    
   }
 
 

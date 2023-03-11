@@ -1,5 +1,7 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -24,6 +26,7 @@ public class Project extends AbstractEntity{
     @ManyToOne(cascade= CascadeType.ALL)
     @JoinColumn(name = "client_id", nullable = false)
     @Valid
+    @JsonIgnore
     private Client client;
 
     public Project() {

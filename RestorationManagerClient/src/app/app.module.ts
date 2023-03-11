@@ -21,6 +21,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { NewProjectFormComponent } from './new-project/new-project-form/new-project-form.component';
 import { ExistingClientFormComponent } from './existing-client-form/existing-client-form.component';
 import { NewClientFormComponent } from './new-client/new-client-form/new-client-form.component';
+import { ClientWProjectsComponent } from './client/client-w-projects/client-w-projects.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { NewClientFormComponent } from './new-client/new-client-form/new-client-
     NewProjectFormComponent,
     ExistingClientFormComponent,
     NewClientFormComponent,
+    ClientWProjectsComponent,
   ],
   imports: [
     BrowserModule,

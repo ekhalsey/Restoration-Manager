@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ClientWProjectsComponent } from './client/client-w-projects/client-w-projects.component';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
 import { NewClientComponent } from './new-client/new-client.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'add/project', component: NewProjectComponent},
   { path: 'project', component: ProjectComponent},
   { path: 'client', component: ClientComponent},
+  { path: 'client/:id', component: ClientWProjectsComponent}
 ];
 
 @NgModule({

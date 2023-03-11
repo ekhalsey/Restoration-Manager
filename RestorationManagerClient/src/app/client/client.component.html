@@ -9,6 +9,7 @@
             <th scope="col">Phone Number</th>
             <th>Email</th>
             <th>Projects</th>
+            <th>projects</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +18,8 @@
                 <td><a href="/client/{{client.id}}">{{client.firstName}} {{client.lastName}}</a></td>
                 <td>{{client.phoneNumber}}</td>
                 <td>{{client.email}}</td>
-                <td><a href="/project">View Projects</a></td>
+                <td><a href="/client/{{client.id}}">View Projects</a></td>
+                <td *ngFor="let project of client.projects">{{project.name}}</td>
             </tr>
         </tbody>
     </table>

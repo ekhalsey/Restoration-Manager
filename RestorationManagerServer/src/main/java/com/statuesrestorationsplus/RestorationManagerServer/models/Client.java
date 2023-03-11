@@ -1,5 +1,7 @@
 package com.statuesrestorationsplus.RestorationManagerServer.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -64,5 +66,9 @@ public class Client extends AbstractEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
     }
 }
