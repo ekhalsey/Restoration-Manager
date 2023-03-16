@@ -1,1 +1,9 @@
 <p>client-w-projects works!</p>
+
+<h4>Client Details</h4>
+<p>{{client.firstName}} {{client.lastName}}</p>
+
+<h4>Projects</h4>
+<ul *ngFor="let project of projects">
+    <li>{{project.name}}</li>
+</ul>

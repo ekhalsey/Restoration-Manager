@@ -23,5 +23,5 @@ export class ClientService {
   public getClientById(id: number): Observable<Client> {
     return this.http.get<Client>(`${this.url}/${id}`)
   }
- 
+
 }
