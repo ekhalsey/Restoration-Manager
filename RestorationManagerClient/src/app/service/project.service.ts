@@ -21,8 +21,12 @@ export class ProjectService {
     return this.http.post<Project>(`${this.url}/add`, project);
   }
 
-  public getProjectsByClientId(clientId: number): Observable<Project> {
-    return this.http.get<Project>(`${this.url}/client/${clientId}`)
+  public getProjectById(projectId:number):Observable<Project> {
+    return this.http.get<Project>(`${this.url}/${projectId}`)
+  }
+
+  public getProjectIdsByClientId(clientId: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/client/${clientId}`)
   }
 
   // TODO: Figure out how to pull one record
