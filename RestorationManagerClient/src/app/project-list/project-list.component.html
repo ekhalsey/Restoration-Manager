@@ -3,11 +3,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Project name</th>
-                <th scope="col">Due date</th>
-                <th scope="col">Quoted price</th>
+                <th (click)="sort('name')" class="sortable" scope="col">Project name</th>
+                <th (click)="sort('dueDate')" class="sortable" scope="col">Due date</th>
+                <th (click)="sort('quotedPrice')" class="sortable" scope="col">Quoted price</th>
                 <th scope="col">Description</th>
-                <th scope="col">Client Name</th>
+                <th (click)="sort('client')" class="sortable" scope="col">Client Name</th>
             </tr>
         </thead>
         <tbody>
